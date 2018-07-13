@@ -1,0 +1,377 @@
+[
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1531457525921,
+            "changeTime": 1531457525921,
+            "contentHash": "b28b7af69320201d1cf206ebf28373980add1451",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1531457525921,
+            "changeTime": 1531457525921,
+            "contentHash": "7505d64a54e061b7acd54ccd58b49dc43500b635",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1531467936647,
+            "changeTime": 1531467936647,
+            "contentHash": "78dd78c06e81fd7afb457ecdb5af8fae5546e0a3",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1531467029930,
+            "changeTime": 1531467029930,
+            "contentHash": "c3808d677499c0493d34ffc11e172c6020359473",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo",
+            "isDirectory": true,
+            "size": 320,
+            "modifiedTime": 1531467048613,
+            "changeTime": 1531467048613,
+            "contentHash": "23708499796428a3b33b2865121ddebae0e7ecff",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.app",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.app",
+            "isDirectory": false,
+            "size": 91,
+            "modifiedTime": 1531466746936,
+            "changeTime": 1531466746936,
+            "contentHash": "488e745c681784172b562483ee92b82cce9d469d",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.app-meta.xml",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.app-meta.xml",
+            "isDirectory": false,
+            "size": 249,
+            "modifiedTime": 1531460103040,
+            "changeTime": 1531460103040,
+            "contentHash": "f9760d0fa02d25529d5164645115f301c3b5ca4e",
+            "isMetadataFile": true,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.auradoc",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.auradoc",
+            "isDirectory": false,
+            "size": 209,
+            "modifiedTime": 1531460103042,
+            "changeTime": 1531460103042,
+            "contentHash": "fd7f560d82324d6a8255c8c6ebf60698f5f93f1e",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.css",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.css",
+            "isDirectory": false,
+            "size": 10,
+            "modifiedTime": 1531460103041,
+            "changeTime": 1531460103041,
+            "contentHash": "44063bf628f237edaa1f3f358714dd40ac321703",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.svg",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemo.svg",
+            "isDirectory": false,
+            "size": 661,
+            "modifiedTime": 1531460103042,
+            "changeTime": 1531460103042,
+            "contentHash": "721eeffe17135535c3834b77f1e1968fe6360ed4",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoController.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoController.js",
+            "isDirectory": false,
+            "size": 65,
+            "modifiedTime": 1531460103040,
+            "changeTime": 1531460103040,
+            "contentHash": "194250e0c86b1981f8d4e7246be6b32954c6deaf",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoHelper.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoHelper.js",
+            "isDirectory": false,
+            "size": 45,
+            "modifiedTime": 1531460103041,
+            "changeTime": 1531460103041,
+            "contentHash": "fa35ebecd73c127729bf311a95b613f711a6f10b",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoRenderer.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/familyDayAIDemo/familyDayAIDemoRenderer.js",
+            "isDirectory": false,
+            "size": 50,
+            "modifiedTime": 1531460103041,
+            "changeTime": 1531460103041,
+            "contentHash": "8b79b016f08440c9b2f7d706a6d21229c854540b",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject",
+            "isDirectory": true,
+            "size": 256,
+            "modifiedTime": 1531467942465,
+            "changeTime": 1531460146232,
+            "contentHash": "07da07834d8f50a1018cf646c911906296572a7c",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": true,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo",
+        {
+            "state": "u",
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 352,
+            "modifiedTime": 1531473805075,
+            "changeTime": 1531473805075,
+            "contentHash": "a20e6bf08c1c395eec442bc8a27eda9270732988"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.auradoc",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.auradoc",
+            "isDirectory": false,
+            "size": 209,
+            "modifiedTime": 1531467029934,
+            "changeTime": 1531467029934,
+            "contentHash": "fd7f560d82324d6a8255c8c6ebf60698f5f93f1e",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp",
+            "isDirectory": false,
+            "size": 1332,
+            "modifiedTime": 1531472191420,
+            "changeTime": 1531472191420,
+            "contentHash": "e00c8c79cc4713199c2336dc03aac8459bd23d51",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp-meta.xml",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp-meta.xml",
+            "isDirectory": false,
+            "size": 250,
+            "modifiedTime": 1531467029931,
+            "changeTime": 1531467029931,
+            "contentHash": "1231651ef7bb4a86a46041d024e094b6331fc0a7",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.css",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.css",
+            "isDirectory": false,
+            "size": 10,
+            "modifiedTime": 1531467029932,
+            "changeTime": 1531467029932,
+            "contentHash": "44063bf628f237edaa1f3f358714dd40ac321703",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.design",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.design",
+            "isDirectory": false,
+            "size": 40,
+            "modifiedTime": 1531467029934,
+            "changeTime": 1531467029934,
+            "contentHash": "c5618bc7228e29c74b07b78fd040e05ae8a541ec",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.svg",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.svg",
+            "isDirectory": false,
+            "size": 661,
+            "modifiedTime": 1531467029933,
+            "changeTime": 1531467029933,
+            "contentHash": "721eeffe17135535c3834b77f1e1968fe6360ed4",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoController.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoController.js",
+            "isDirectory": false,
+            "size": 572,
+            "modifiedTime": 1531471782456,
+            "changeTime": 1531471782456,
+            "contentHash": "95b7c62000d226e81e5cd90ed81c079dc416cccf",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoHelper.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoHelper.js",
+            "isDirectory": false,
+            "size": 1668,
+            "modifiedTime": 1531473375764,
+            "changeTime": 1531473375765,
+            "contentHash": "a6d32189b229bfdb2643c73ad5024201f52a8c04",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoRenderer.js",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoRenderer.js",
+            "isDirectory": false,
+            "size": 50,
+            "modifiedTime": 1531467029933,
+            "changeTime": 1531467029933,
+            "contentHash": "8b79b016f08440c9b2f7d706a6d21229c854540b",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes",
+        {
+            "state": "u",
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 160,
+            "modifiedTime": 1531473908904,
+            "changeTime": 1531473908904,
+            "contentHash": "7444a2b40fb6dc4b6d07dc57f5eb7ed05ed10dc7"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes/einsteinVisionDemoController.cls",
+        {
+            "state": "u",
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes/einsteinVisionDemoController.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 3185,
+            "modifiedTime": 1531473908903,
+            "changeTime": 1531473908903,
+            "contentHash": "e65a49922c9199ffa823816cff45bc3f0b335d84"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes/einsteinVisionDemoController.cls-meta.xml",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes/einsteinVisionDemoController.cls-meta.xml",
+            "isDirectory": false,
+            "size": 206,
+            "modifiedTime": 1531467873932,
+            "changeTime": 1531467873932,
+            "contentHash": "6707cc49572ccf48cd0e7a0f3c2dc5fefaf099c3",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ]
+]

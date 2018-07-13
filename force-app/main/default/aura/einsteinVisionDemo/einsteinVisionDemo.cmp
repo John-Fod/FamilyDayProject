@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable" controller="einsteinVisionDemoController">
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="change" value="{!v.imageInfo}" action="{!c.onImageInfoChange}"/>
+
+    <aura:attribute access="private" name="userId" type="String"/>
+    <aura:attribute access="private" name="imageInfo" type="Object"/>
+
+
+    <div class="slds-grid slds-gutters slds-grid_pull-padded-medium">
+        <div class="slds-col slds-size_1-of-3 slds-p-horizontal_medium slds-theme_default">
+            <h1>Hello, welcome to the demo</h1>
+            <canvas aura:id="imageCanvas"></canvas>
+            <lightning:button aura:id="animalCheckButton" class="slds-m-around_small" disabled="{!v.imageInfo == null}" onclick="{!c.onClickAnimalCheck}"/>
+        </div>
+        <div class="slds-col slds-size_2-of-3 slds-p-horizontal_medium slds-theme_default">
+            <lightning:fileUpload
+                label="Please Select a File"
+                multiple="false"
+                accept=".jpg, .jpeg, .png"
+                recordId="{!v.userId}"
+                onuploadfinished="{!c.onUploadFinished}"
+            />
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-p-horizontal_medium slds-theme_default">
+        </div>
+    </div>
+
+</aura:component>	
