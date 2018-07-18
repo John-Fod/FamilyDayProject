@@ -3,16 +3,14 @@
     <aura:handler name="change" value="{!v.imageInfo}" action="{!c.onImageInfoChange}"/>
 
     <aura:attribute access="private" name="userId" type="String"/>
+    <aura:attribute access="private" name="datasets" type="Object[]"/>
     <aura:attribute access="private" name="imageInfo" type="Object"/>
 
-
-    <div class="slds-grid slds-gutters slds-grid_pull-padded-medium">
-        <div class="slds-col slds-size_1-of-3 slds-p-horizontal_medium slds-theme_default">
-            <h1>Hello, welcome to the demo</h1>
-            <canvas aura:id="imageCanvas"></canvas>
-            <lightning:button aura:id="animalCheckButton" class="slds-m-around_small" disabled="{!v.imageInfo == null}" onclick="{!c.onClickAnimalCheck}"/>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-3">
+            <canvas aura:id="imageCanvas" id="imageCanvas"></canvas>
         </div>
-        <div class="slds-col slds-size_2-of-3 slds-p-horizontal_medium slds-theme_default">
+        <div class="slds-col slds-size_2-of-3 slds-box slds-theme_default">
             <lightning:fileUpload
                 label="Please Select a File"
                 multiple="false"
@@ -21,7 +19,13 @@
                 onuploadfinished="{!c.onUploadFinished}"
             />
         </div>
-        <div class="slds-col slds-size_1-of-1 slds-p-horizontal_medium slds-theme_default">
+        <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default" onclick="{!c.handleEinsteinClick}">
+            <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
+                <div>
+                    <button data-clickaction="getEstimation" data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}" data-datasetid="{#dataset.Id}" data-name="{#dataset.Name}">{#dataset.Name}</button>
+                </div>
+                <!-- <lightning:button aura:id="animalCheckButton" class="slds-m-around_small" disabled="{!v.imageInfo == null}" onclick="{!c.onClickAnimalCheck}"/> -->
+            </aura:iteration>
         </div>
     </div>
 

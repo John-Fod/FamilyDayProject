@@ -5,6 +5,8 @@
             var returnObject = JSON.parse(response.getReturnValue());
             console.log('returnObject : ', returnObject);
             component.set('v.userId', returnObject.userId);
+            component.set('v.datasets', returnObject.einsteinDatasets);
+            console.log("v.datasets : ", component.get('v.datasets'));
         });
         $A.enqueueAction(action);
     },
@@ -12,8 +14,6 @@
         var action = component.get('c.getImageInfo');
         action.setParam("imageContentDocumentId", imageId);
         action.setCallback(this, function(response){
-            console.log('getReturnValue : ', response.getReturnValue());
-            console.log(response.getReturnValue().versionData);
             component.set("v.imageInfo", response.getReturnValue());
         });
         $A.enqueueAction(action);
@@ -27,11 +27,11 @@
             ctx.drawImage(img,0,0);
         }
     },
-    callEinsteinAPI: function(component, imageModelId){
+    callEinsteinAPI: function(component, contentVersionId, imageModelId){
         var action = component.get('c.callEinsteinAPI');
         action.setParams({
             "imageModelId": imageModelId,
-            "versionData": component.get('v.imageInfo.versionData')
+            "contentVersionId": contentVersionId
         });
         action.setCallback(this, function(response){
             console.log("response : ", response.getReturnValue());
