@@ -5,6 +5,8 @@
     <aura:attribute access="private" name="userId" type="String"/>
     <aura:attribute access="private" name="datasets" type="Object[]"/>
     <aura:attribute access="private" name="imageInfo" type="Object"/>
+    <aura:attribute access="private" name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute access="private" name="einsteinResponse" type="object"/>
 
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-3">
@@ -18,14 +20,21 @@
                 recordId="{!v.userId}"
                 onuploadfinished="{!c.onUploadFinished}"
             />
-        </div>
-        <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default" onclick="{!c.handleEinsteinClick}">
-            <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
-                <div>
-                    <button data-clickaction="getEstimation" data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}" data-datasetid="{#dataset.Id}" data-name="{#dataset.Name}">{#dataset.Name}</button>
-                </div>
-                <!-- <lightning:button aura:id="animalCheckButton" class="slds-m-around_small" disabled="{!v.imageInfo == null}" onclick="{!c.onClickAnimalCheck}"/> -->
-            </aura:iteration>
+            <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default" onclick="{!c.handleEinsteinClick}">
+                <!-- THE DIFFERENT DATASETS -->
+                <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
+                    <div>
+                        <button disabled="{!v.imageInfo == null}" data-clickaction="getEstimation" data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}" data-datasetid="{#dataset.Id}" data-name="{#dataset.Name}">{#dataset.Name}</button>
+                    </div>
+                </aura:iteration>
+
+                <dl class="slds-dl--horizontal">
+                    <aura:iteration items="{!v.einsteinResponse}" var="label" indexVar="labelIndex">
+                        <dt class="slds-dl--horizontal__label">{#label.label}</dt>
+                        <dd class="slds-dl--horizontal__detail">{#label.percent}</dd>
+                    </aura:iteration>
+                </dl>
+            </div>
         </div>
     </div>
 

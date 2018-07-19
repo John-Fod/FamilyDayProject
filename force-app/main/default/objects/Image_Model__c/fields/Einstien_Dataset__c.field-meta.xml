@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Einstien_Dataset__c</fullName>
+    <externalId>false</externalId>
+    <label>Einstien Dataset</label>
+    <referenceTo>Einstien_Dataset__c</referenceTo>
+    <relationshipLabel>Image Models</relationshipLabel>
+    <relationshipName>Image_Models</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

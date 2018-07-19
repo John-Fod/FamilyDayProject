@@ -3,5 +3,10 @@
 
 .THIS #imageCanvas{
     width:100%;
-    background-color:red;
+}
+.THIS dl dt{
+    font-weight:bold;
+}
+.THIS dl dd:after{
+    content:"%";
 }
