@@ -38,5 +38,44 @@
         if(tabindex){
             helper.setCurrentTab(component, Number(tabindex));
         }
+    },
+    onCanvasMouseDown: function(component, event, helper){
+        var dragEvent = {};
+        var rect = component.find('imageCanvas').getElement().getBoundingClientRect();
+        dragEvent.isActive = true;
+        dragEvent.startX = event.clientX - rect.left;
+        dragEvent.startY = event.clientY - rect.top;
+        component.set('v.dragEvent', dragEvent);
+        helper.drawSelectedRectangle(component, false);
+    },
+    onCanvasMouseUp: function(component, event, helper){
+        var dragEvent = component.get('v.dragEvent');
+        if(!dragEvent || !dragEvent.isActive) return;
+        var rect = component.find('imageCanvas').getElement().getBoundingClientRect();
+        dragEvent.isActive = false;
+        dragEvent.endX = event.clientX - rect.left;
+        dragEvent.endY = event.clientY - rect.top;
+        component.set('v.dragEvent', dragEvent);
+        helper.drawSelectedRectangle(component, true);
+    },
+    onCanvasMouseOut: function(component, event, helper){
+        var dragEvent = component.get('v.dragEvent');
+        if(!dragEvent || !dragEvent.isActive) return;
+        var rect = component.find('imageCanvas').getElement().getBoundingClientRect();
+        dragEvent.isActive = false;
+        dragEvent.endX = event.clientX - rect.left;
+        dragEvent.endY = event.clientY - rect.top;
+        component.set('v.dragEvent', dragEvent);
+        helper.drawSelectedRectangle(component, true);
+    },
+    onCanvasMouseMove: function(component, event, helper){
+        var dragEvent = component.get('v.dragEvent');
+        if(!dragEvent || !dragEvent.isActive) return;
+        var rect = component.find('imageCanvas').getElement().getBoundingClientRect();
+        dragEvent.endX = event.clientX - rect.left;
+        dragEvent.endY = event.clientY - rect.top;
+        component.set('v.dragEvent', dragEvent);
+        helper.drawSelectedRectangle(component, false);
     }
+
 })

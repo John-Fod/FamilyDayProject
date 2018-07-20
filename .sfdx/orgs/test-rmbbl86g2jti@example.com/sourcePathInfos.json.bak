@@ -76,9 +76,9 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo",
             "isDirectory": true,
             "size": 384,
-            "modifiedTime": 1532054231745,
-            "changeTime": 1532054005786,
-            "contentHash": "5cd72a6036daf77db057bd28c124f25223cdc2e8",
+            "modifiedTime": 1532062962333,
+            "changeTime": 1532062962333,
+            "contentHash": "6a046ce333a587d71f3c32664421e727753c4499",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -101,10 +101,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp",
             "isDirectory": false,
-            "size": 3275,
-            "modifiedTime": 1532053599884,
-            "changeTime": 1532053599885,
-            "contentHash": "b49940adb50ef29cb5d6eb3c9240f75b8642a518",
+            "size": 3936,
+            "modifiedTime": 1532069623366,
+            "changeTime": 1532069623366,
+            "contentHash": "a24a28bdd088a4a629ee3705c2a184407e15349f",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -127,10 +127,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.css",
             "isDirectory": false,
-            "size": 124,
-            "modifiedTime": 1531993634383,
-            "changeTime": 1531906785884,
-            "contentHash": "2fe53a59c63682639266a2d07a7d31e3035f637f",
+            "size": 149,
+            "modifiedTime": 1532067715704,
+            "changeTime": 1532067715704,
+            "contentHash": "8048293917de5c7bd7bcc19fd2d1cb3d05fa4bff",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -166,10 +166,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoController.js",
             "isDirectory": false,
-            "size": 1606,
-            "modifiedTime": 1532052349653,
-            "changeTime": 1532052349653,
-            "contentHash": "54e644ea757efdb6c118c66617c921e40aadee29",
+            "size": 3509,
+            "modifiedTime": 1532067520771,
+            "changeTime": 1532067520771,
+            "contentHash": "5393de8dfc371abb891c5dbc88e258c5369861b6",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -181,10 +181,10 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoHelper.js",
             "isDirectory": false,
             "isMetadataFile": false,
-            "size": 4762,
-            "modifiedTime": 1532054231744,
-            "changeTime": 1532054231744,
-            "contentHash": "07b6a828a9888d6540a5ad6c3ee435b4588faa44"
+            "size": 6977,
+            "modifiedTime": 1532069782089,
+            "changeTime": 1532069782089,
+            "contentHash": "c28944ad5d6f11d34f4fe52cd28a41fbeb0f72ca"
         }
     ],
     [
@@ -218,10 +218,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/classes/einsteinVisionDemoController.cls",
             "isDirectory": false,
-            "size": 4995,
-            "modifiedTime": 1531993634390,
-            "changeTime": 1531816980132,
-            "contentHash": "78dfae7b53e31b0a884821b41b310609f62f5055",
+            "size": 3139,
+            "modifiedTime": 1532069338611,
+            "changeTime": 1532069338611,
+            "contentHash": "da3d8c2677ace07812645f0534102a3d97c15d5e",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -765,7 +765,7 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinResults",
             "isDirectory": true,
             "size": 352,
-            "modifiedTime": 1532053769907,
+            "modifiedTime": 1532059272123,
             "changeTime": 1532053769907,
             "contentHash": "40c60afe9c0ffdb8606a8a8b1368e864608b84a0",
             "isMetadataFile": false,

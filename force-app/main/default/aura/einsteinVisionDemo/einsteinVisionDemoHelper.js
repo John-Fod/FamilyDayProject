@@ -35,12 +35,52 @@
             ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
         }
     },
+    drawSelectedRectangle: function(component, updateCroppedCanvas){
+        var self = this;
+        var imageCanvas = component.find('imageCanvas');
+        var ctx = imageCanvas.getElement().getContext('2d');
+        var img = new Image();
+        img.src = "data:img/jpg;base64," + component.get('v.imageInfo.versionData');
+        img.onload = function(){
+            var dE = component.get('v.dragEvent');
+            var lineWidth = 2;
+            var sF = self.resizeCanvas(component, ctx, img);
+            ctx.drawImage(img, 0, 0, img.width * sF, img.height * sF);
+            ctx.strokeStyle = 'rgba(255,0,0,0.6)';
+            ctx.lineWidth = lineWidth;
+            var rect = {};
+            rect.x = dE.startX;
+            rect.y = dE.startY;
+            rect.width = (dE.endX - dE.startX);
+            rect.height = (dE.endY- dE.startY);
+
+            var minDimension = 2;
+            if(Math.abs(rect.width) > minDimension && Math.abs(rect.height) > minDimension){
+                if(updateCroppedCanvas){
+                    self.updateCroppedCanvas(component, ctx, rect);
+                }
+                ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+            }
+        }
+    },
+    updateCroppedCanvas: function(component, ctx, rect){
+        var imageData = ctx.getImageData(rect.x, rect.y, rect.width, rect.height);
+        var croppedCanvas = component.find("croppedCanvas").getElement();
+        croppedCanvas.width = imageData.width;
+        croppedCanvas.height = imageData.height;
+        var croppedCtx = croppedCanvas.getContext("2d")
+        croppedCtx.putImageData(imageData,0,0);
+        var imageData64 = croppedCanvas.toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/,'');
+        component.set('v.croppedImageData64', imageData64);
+    },
     callEinsteinAPI: function(component, contentVersionId, imageModelId, datasetIndex){
         if(!component.get('v.imageInfo')) return;
         var action = component.get('c.callEinsteinAPI');
+        console.log('component.get("v.croppedImageData64") : ', component.get("v.croppedImageData64"));
         action.setParams({
             "imageModelId": imageModelId,
-            "contentVersionId": contentVersionId
+            "contentVersionId": contentVersionId,
+            "imageData64":component.find("croppedCanvas").getElement().toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/,'')
         });
         action.setCallback(this, function(response){
             console.log("response : ", response.getReturnValue());
@@ -65,6 +105,13 @@
         var scalingFactor = Math.max(horizontalScalingFactor, verticalScalingFactor);
         ctx.canvas.width = img.width * scalingFactor;
         ctx.canvas.height = img.height * scalingFactor;
+        return scalingFactor;
+    },
+    getScalingFactor: function(component, ctx, img){
+        var self = this;
+        var horizontalScalingFactor = ctx.canvas.parentElement.offsetWidth / img.width;
+        var verticalScalingFactor = ctx.canvas.parentElement.offsetHeight / img.height;
+        var scalingFactor = Math.max(horizontalScalingFactor, verticalScalingFactor);
         return scalingFactor;
     },
     setCurrentTab: function(component, tabIndex){

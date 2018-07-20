@@ -38,48 +38,14 @@ public with sharing class einsteinVisionDemoController {
 
 
 
-    @AuraEnabled public static List<Vision.Prediction> callEinsteinAPI(String imageModelId, String contentVersionId){
+    @AuraEnabled public static List<Vision.Prediction> callEinsteinAPI(String imageModelId, String contentVersionId, String imageData64){
         String access_token = getAccessToken();
         System.debug('access_token : ' + access_token);
         ContentVersion content = [SELECT Title,VersionData FROM ContentVersion WHERE Id = :contentVersionId LIMIT 1];
-        return Vision.predictBlob(content.VersionData, access_token, imageModelId);
-        //ContentVersion content = [SELECT Title,VersionData FROM ContentVersion WHERE Id =
-        // return Vision.predictBlob(Blob.valueOf(versionData), access_token, 'GeneralImageClassifier');
-        // String modelName = [SELECT Id, ModelId__c, Name FROM Image_Model__c WHERE ModelId__c = :imageModelId LIMIT 1].Name;
-        // return Vision.predictBlob(Blob.valueOf(versionData), access_token, 'GeneralImageClassifier');
-        // return Vision.predictBlob(Blob.valueOf(versionData), access_token, modelName);
-
-
-
-    /* THE PROBLEM IS THAT WE NEED TO SEND A FORM, NOT JUST JSON */
-    /*
-        String token = 'NELWC7DLGDP2NXS3O3624MDWTDA3UFXZIRZZOBOYTTMAL33PEO5Q4PFJR4T5525NEMEU57WYCEKDTPL7I457ZL7KUK3T5NJ7GTLBPTQ';
-        Map<String,Object> reqBodyMap = new Map<String,Object>();
-        reqBodyMap.put('modelId',imageModelId);
-        reqBodyMap.put('sampleBase64Content',versionData);
-        System.debug('modelId : ' + imageModelId);
-        System.debug('versionData : ' + versionData);
-
-        HTTPRequest req = new HTTPRequest();
-        req.setMethod('POST');
-        req.setHeader('Authorization', 'Bearer ' + token);
-        req.setHeader('Content-Type', 'multipart/form-data');
-        req.setHeader('Cache-Control', 'no-cache');
-        req.setEndpoint('https://api.einstein.ai/v2/vision/predict');
-        //req.setBody(JSON.serialize(reqBodyMap));
-        req.setBody('{"modelId":"' + imageModelId + '", "sampleBase64Content":"' + versionData + '"}');
-        req.setTimeout(30000);
-        HTTP http = new HTTP();
-        HTTPResponse res = http.send(req);
-        Map<String,Object> resBodyMap = (Map<String,Object>)JSON.deserializeUntyped(res.getBody());
-        System.debug('resBodyMap.message : ' + resBodyMap.get('message'));
-        System.debug('res : ' + res);
-        System.debug('res.getBody : ' + res.getBody());
-        System.debug('res.getStatus : ' + res.getStatus());
-        System.debug('res.getHeaderKeys : ' + res.getHeaderKeys());
-        return res.getBody();
-    */
-
+        // return Vision.predictBlob(content.VersionData, access_token, imageModelId);
+        System.debug('imageData : ' + imageData64);
+        System.debug('content.versionData : ' + content.versionData);
+        return Vision.predictBlob(EncodingUtil.base64Decode(imageData64), access_token, imageModelId);
     }
 
     public static String getAccessToken(){
