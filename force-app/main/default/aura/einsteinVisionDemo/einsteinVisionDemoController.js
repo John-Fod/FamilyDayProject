@@ -9,6 +9,9 @@
     onImageInfoChange: function(component, event, helper){
         helper.drawNewImage(component);
     },
+    onChangeImageData: function(component, event, helper){
+        helper.drawCameraImage(component);
+    },
     handleEinsteinClick: function(component, event, helper){
         var target = event.target;
         if(event.target === event.currentTarget) return;

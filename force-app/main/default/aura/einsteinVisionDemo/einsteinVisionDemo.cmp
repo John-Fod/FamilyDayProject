@@ -1,10 +1,12 @@
 <aura:component implements="force:appHostable" controller="einsteinVisionDemoController">
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
     <aura:handler name="change" value="{!v.imageInfo}" action="{!c.onImageInfoChange}"/>
+    <aura:handler name="change" value="{!v.imageData}" action="{!c.onChangeImageData}"/>
 
     <aura:attribute access="private" name="userId" type="String"/>
     <aura:attribute access="private" name="datasets" type="Object[]"/>
     <aura:attribute access="private" name="imageInfo" type="Object"/>
+    <aura:attribute access="private" name="imageData" type="String"/>
     <aura:attribute access="private" name="isLoading" type="Boolean" default="false"/>
     <aura:attribute access="private" name="einsteinResponse" type="object"/>
     <aura:attribute access="private" name="selectedDatasetIndex" type="Integer" default="0"/>
@@ -30,6 +32,9 @@
                         onuploadfinished="{!c.onUploadFinished}"
                     />
                 </div>
+                <c:CameraCaptureExampleComponent
+                    imageData="{!v.imageData}"
+                />
     
                 <div class="slds-col slds-size_2-of-3">
                     <canvas aura:id="croppedCanvas" id="croppedCanvas"></canvas>
@@ -53,6 +58,7 @@
                         <div aura:id="tabsContent" class="slds-tabs_default__content slds-hide" id="{#'tab-default-' + datasetIndex}" role="tabpanel" aria-labelledby="{#'tab-default-' + datasetIndex + '__item'}" >
                             <c:einsteinResults
                                 dataset="{!dataset}"
+                                imageData="{!v.imageData}"
                                 imageInfo="{!v.imageInfo}"
                             />
                         </div>

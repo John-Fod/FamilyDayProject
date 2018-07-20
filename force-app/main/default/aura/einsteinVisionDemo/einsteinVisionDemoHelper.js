@@ -35,12 +35,24 @@
             ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
         }
     },
+    drawCameraImage: function(component){
+        var self = this;
+        var imageCanvas = component.find("imageCanvas");
+        var ctx = imageCanvas.getElement().getContext('2d');
+        var img = new Image();
+        img.src = component.get('v.imageData');
+        img.onload = function(){
+            var scalingFactor = self.resizeCanvas(component, ctx, img);
+            ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
+        }
+    },
     drawSelectedRectangle: function(component, updateCroppedCanvas){
         var self = this;
         var imageCanvas = component.find('imageCanvas');
         var ctx = imageCanvas.getElement().getContext('2d');
         var img = new Image();
-        img.src = "data:img/jpg;base64," + component.get('v.imageInfo.versionData');
+        // img.src = "data:img/jpg;base64," + component.get('v.imageInfo.versionData');
+        img.src = component.get("v.imageData");
         img.onload = function(){
             var dE = component.get('v.dragEvent');
             var lineWidth = 2;
@@ -74,9 +86,8 @@
         component.set('v.croppedImageData64', imageData64);
     },
     callEinsteinAPI: function(component, contentVersionId, imageModelId, datasetIndex){
-        if(!component.get('v.imageInfo')) return;
+        if(!component.get('v.imageInfo') && !component.get("v.imageData")) return;
         var action = component.get('c.callEinsteinAPI');
-        console.log('component.get("v.croppedImageData64") : ', component.get("v.croppedImageData64"));
         action.setParams({
             "imageModelId": imageModelId,
             "contentVersionId": contentVersionId,

@@ -2,6 +2,7 @@
 
     <aura:attribute access="public" name="dataset" type="object"/>
     <aura:attribute access="public" name="imageInfo" type="object"/>
+    <aura:attribute access="public" name="imageData" type="String"/>
 
     <div>
         <h1>{#v.dataset.Name}</h1>
@@ -13,7 +14,7 @@
                 </aura:iteration>
             </dl>
             <aura:set attribute="else">
-                <aura:if isTrue="{!v.imageInfo != null}">
+                <aura:if isTrue="{!v.imageInfo != null &amp;&amp; v.imageData != null}">
                     <div class="demo-only" style="height: 6rem">
                         <div role="status" class="slds-spinner slds-spinner_large">
                             <span class="slds-assistive-text">Calculating</span>
