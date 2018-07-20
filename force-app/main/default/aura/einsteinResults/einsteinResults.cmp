@@ -1,0 +1,31 @@
+<aura:component>
+
+    <aura:attribute access="public" name="dataset" type="object"/>
+    <aura:attribute access="public" name="imageInfo" type="object"/>
+
+    <div>
+        <h1>{#v.dataset.Name}</h1>
+        <aura:if isTrue="{!v.dataset.einsteinResults != null}">
+            <dl class="slds-dl--horizontal">
+                <aura:iteration items="{!v.dataset.einsteinResults}" var="label" indexVar="labelIndex">
+                    <dt class="slds-dl--horizontal__label">{#label.label}</dt>
+                    <dd class="slds-dl--horizontal__detail">{#label.percent}</dd>
+                </aura:iteration>
+            </dl>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.imageInfo != null}">
+                    <div class="demo-only" style="height: 6rem">
+                        <div role="status" class="slds-spinner slds-spinner_large">
+                            <span class="slds-assistive-text">Calculating</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                    <aura:set attribute="else">
+                        <h2>Please Select an Image</h2>
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>	

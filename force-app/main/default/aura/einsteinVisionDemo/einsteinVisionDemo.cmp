@@ -7,12 +7,16 @@
     <aura:attribute access="private" name="imageInfo" type="Object"/>
     <aura:attribute access="private" name="isLoading" type="Boolean" default="false"/>
     <aura:attribute access="private" name="einsteinResponse" type="object"/>
+    <aura:attribute access="private" name="selectedDatasetIndex" type="Integer" default="0"/>
 
     <div class="slds-grid slds-wrap">
-        <div class="slds-col slds-size_1-of-3">
+
+        <div class="slds-col slds-size_1-of-3 slds-m-around sldx-p-around_small">
             <canvas aura:id="imageCanvas" id="imageCanvas"></canvas>
         </div>
-        <div class="slds-col slds-size_2-of-3 slds-box slds-theme_default">
+
+        <div class="slds-col slds-size_2-of-3 slds-m-around slds-theme_default slds-box">
+
             <lightning:fileUpload
                 label="Please Select a File"
                 multiple="false"
@@ -20,21 +24,32 @@
                 recordId="{!v.userId}"
                 onuploadfinished="{!c.onUploadFinished}"
             />
-            <div class="slds-col slds-size_1-of-1 slds-box slds-theme_default" onclick="{!c.handleEinsteinClick}">
-                <!-- THE DIFFERENT DATASETS -->
-                <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
-                    <div>
-                        <button disabled="{!v.imageInfo == null}" data-clickaction="getEstimation" data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}" data-datasetid="{#dataset.Id}" data-name="{#dataset.Name}">{#dataset.Name}</button>
-                    </div>
-                </aura:iteration>
 
-                <dl class="slds-dl--horizontal">
-                    <aura:iteration items="{!v.einsteinResponse}" var="label" indexVar="labelIndex">
-                        <dt class="slds-dl--horizontal__label">{#label.label}</dt>
-                        <dd class="slds-dl--horizontal__detail">{#label.percent}</dd>
+
+            <div class="slds-theme_default slds-scrollable_y slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_medium slds-m-top_large">
+                <div class="slds-tabs_default">
+                    <ul class="slds-tabs_default__nav" role="tablist" onclick="{!c.handleClickTabList}">
+                        <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
+                            <li aura:id="tab" data-tabindex="{#datasetIndex}" data-clickaction="getEstimation" data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}" data-datasetid="{#dataset.Id}" data-name="{#dataset.Name}" data-datasetindex="{#datasetIndex}" class="slds-tabs_default__item slds-is-active" titel="{#'Tab ' + datasetIndex}" role="presentation" onclick="{!c.handleEinsteinClick}">
+                                <a class="slds-tabs_default__link" href="javascript:void(0)" role="tab" tabindex="{#datasetIndex}" aria-selected="{!v.selectedDatasetIndex == datasetIndex ? 'true':'false'}" aria-controls="{#'tab-default-tabs-' + datasetIndex}" id="{#'tab-default-' + datasetIndex + '__item'}" >
+                                    {#dataset.Name}
+                                </a>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+
+                    <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
+                        <div aura:id="tabsContent" class="slds-tabs_default__content slds-hide" id="{#'tab-default-' + datasetIndex}" role="tabpanel" aria-labelledby="{#'tab-default-' + datasetIndex + '__item'}" >
+                            <c:einsteinResults
+                                dataset="{!dataset}"
+                                imageInfo="{!v.imageInfo}"
+                            />
+                        </div>
                     </aura:iteration>
-                </dl>
+                </div>
             </div>
+
+
         </div>
     </div>
 
