@@ -17,13 +17,15 @@
     <div class="slds-grid slds-wrap">
 
         <div class="slds-col slds-size_1-of-3 slds-m-around sldx-p-around_small">
-            <canvas aura:id="imageCanvas" id="imageCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas>
+            <div>
+                <canvas aura:id="imageCanvas" id="imageCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas>
+            </div>
         </div>
 
         <div class="slds-col slds-size_2-of-3 slds-m-around slds-theme_default slds-box">
 
             <div class="slds-col slds-size_1-of-1">
-                <div class="slds-col slds-size_1-of-3">
+                <!-- <div class="slds-col slds-size_1-of-3">
                     <lightning:fileUpload
                         label="Please Select a File"
                         multiple="false"
@@ -31,13 +33,13 @@
                         recordId="{!v.userId}"
                         onuploadfinished="{!c.onUploadFinished}"
                     />
-                </div>
+                </div> -->
                 <c:CameraCaptureExampleComponent
                     imageData="{!v.imageData}"
                 />
     
                 <div class="slds-col slds-size_2-of-3">
-                    <canvas aura:id="croppedCanvas" id="croppedCanvas"></canvas>
+                    <canvas height="0" width="0" style="display:hidden;" aura:id="croppedCanvas" id="croppedCanvas"></canvas>
                 </div>
             </div>
 

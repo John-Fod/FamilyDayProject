@@ -5,5 +5,5 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <iframe aura:id="vfFrame" allow="geolocation; microphone; camera; midi; encrypted-media;" width="200" height="200" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
+    <iframe aura:id="vfFrame" allow="geolocation; microphone; camera; midi; encrypted-media;" width="1000" height="600" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
 </aura:component>

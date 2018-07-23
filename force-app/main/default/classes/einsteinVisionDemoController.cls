@@ -41,10 +41,8 @@ public with sharing class einsteinVisionDemoController {
     @AuraEnabled public static List<Vision.Prediction> callEinsteinAPI(String imageModelId, String contentVersionId, String imageData64){
         String access_token = getAccessToken();
         System.debug('access_token : ' + access_token);
-        ContentVersion content = [SELECT Title,VersionData FROM ContentVersion WHERE Id = :contentVersionId LIMIT 1];
+        // ContentVersion content = [SELECT Title,VersionData FROM ContentVersion WHERE Id = :contentVersionId LIMIT 1];
         // return Vision.predictBlob(content.VersionData, access_token, imageModelId);
-        System.debug('imageData : ' + imageData64);
-        System.debug('content.versionData : ' + content.versionData);
         return Vision.predictBlob(EncodingUtil.base64Decode(imageData64), access_token, imageModelId);
     }
 

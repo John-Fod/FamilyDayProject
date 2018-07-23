@@ -1,0 +1,50 @@
+<apex:page sidebar="false" showHeader="false">
+    <video class="videoFrame" width="90%"></video><br/>
+    <input type="button" id="capture" value="撮影"/>
+    <!-- <hr/> -->
+    <canvas height="0" width="0" style="visibility:hidden;position:fixed;top:-1000px;left:-1000px;"/>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" />
+    <script type="text/javascript">
+        // Mobile Safariでvideoタグが表示できないためのトリック対応
+        var video = document.querySelector('video');
+        video.setAttribute("autoplay", true);
+        video.setAttribute("playsinline", true);
+        video.setAttribute("controls", true);
+        setTimeout(() => {
+            video.removeAttribute("controls");
+        });
+    
+        //ストリームを準備
+        var constraints = {
+            video: {},
+        }
+        var item = navigator.mediaDevices.getUserMedia(constraints);
+        item.then( function(stream) {
+            video.srcObject = stream;
+            video.onloadedmetadata = function(e) {
+                //ロード完了後にカメラの設定
+                $("#capture").on("click",function(){
+                    captureImage();
+                });
+           };
+        });
+    
+    
+        //撮影
+        function captureImage(){
+            //canvasへ書き込み
+            var video = $("video");
+            var canvas = $("canvas")[0];
+            canvas.width = video.width();
+            canvas.height = video.height();
+            var context2d = canvas.getContext('2d');
+            context2d.drawImage(video[0], 0, 0);
+                
+            //Lightningに送信
+            var lexOrigin = "https://agility-saas-9287-dev-ed.lightning.force.com";
+            var message = canvas.toDataURL('image/jpeg');
+            parent.postMessage(message, lexOrigin);
+        }
+    </script>
+</apex:page>

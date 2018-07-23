@@ -8,7 +8,6 @@
             }
             // imageData属性にセットした上で、デバッグのためにConsoleにも出力
             component.set("v.imageData", event.data);
-            console.log(component.get("v.imageData"));
         }, false);
     }
 
