@@ -1,9 +1,9 @@
 <aura:component implements="flexipage:availableForAllPageTypes">
     <aura:attribute name="vfHost" type="String" 
-        default="agility-saas-9287-dev-ed--c.cs22.visual.force.com"/>
+        default="momentum-saas-5317-dev-ed--c.cs42.visual.force.com"/>
     <aura:attribute name="imageData" type="String" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
-    <iframe aura:id="vfFrame" allow="geolocation; microphone; camera; midi; encrypted-media;" width="1000" height="600" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
+    <iframe aura:id="vfFrame" allow="geolocation; microphone; camera; midi; encrypted-media;" width="800" height="800" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
 </aura:component>

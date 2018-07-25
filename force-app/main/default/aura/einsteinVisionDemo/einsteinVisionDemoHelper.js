@@ -96,6 +96,7 @@
         action.setCallback(this, function(response){
             console.log("response : ", response.getReturnValue());
             var einsteinResponse = response.getReturnValue();
+            console.log(einsteinResponse);
             einsteinResponse.forEach(function(curLabel){
                 curLabel.percent = Math.floor(curLabel.probability * 10000) / 100;
             })
@@ -129,27 +130,38 @@
         var self = this;
         var tabs = component.find("tab");
         var tabsContents = component.find("tabsContent");
-        tabs.forEach(function(curTab, curTabIndex){
-            if(curTabIndex != tabIndex){
-                $A.util.removeClass(curTab, "slds-is-active");
-                curTab.getElement().setAttribute('arai-selected', 'false');
-                curTab.getElement().tabIndex = -1;
-            } else {
-                $A.util.addClass(curTab, "slds-is-active");
-                curTab.getElement().setAttribute('arai-selected', 'false');
-                curTab.getElement().tabIndex = 0;
-            }
-        })
+        if(Array.isArray(tabs)){
+            tabs.forEach(function(curTab, curTabIndex){
+                if(curTabIndex != tabIndex){
+                    $A.util.removeClass(curTab, "slds-is-active");
+                    curTab.getElement().setAttribute('arai-selected', 'false');
+                    curTab.getElement().tabIndex = -1;
+                } else {
+                    $A.util.addClass(curTab, "slds-is-active");
+                    curTab.getElement().setAttribute('arai-selected', 'false');
+                    curTab.getElement().tabIndex = 0;
+                }
+            })
+        } else {
+            $A.util.removeClass(tabs, "slds-is-active");
+            tabs.getElement().setAttribute('arai-selected', 'false');
+            tabs.getElement().tabIndex = -1;
+        }
 
-        tabsContents.forEach(function(curTabsContent, curTabsContentIndex){
-            if(curTabsContentIndex != tabIndex){
-                $A.util.removeClass(curTabsContent, "slds-show");
-                $A.util.addClass(curTabsContent, "slds-hide");
-            } else {
-                $A.util.removeClass(curTabsContent, "slds-hide");
-                $A.util.addClass(curTabsContent, "slds-show");
-            }
-        })
+        if(Array.isArray(tabsContents)){
+            tabsContents.forEach(function(curTabsContent, curTabsContentIndex){
+                if(curTabsContentIndex != tabIndex){
+                    $A.util.removeClass(curTabsContent, "slds-show");
+                    $A.util.addClass(curTabsContent, "slds-hide");
+                } else {
+                    $A.util.removeClass(curTabsContent, "slds-hide");
+                    $A.util.addClass(curTabsContent, "slds-show");
+                }
+            })
+        } else {
+            $A.util.removeClass(tabsContents, "slds-hide");
+            $A.util.addClass(tabsContents, "slds-show");
+        }
         component.set('v.selectedDatasetIndex', tabIndex);
     }
 })

@@ -17,6 +17,7 @@
     
         //ストリームを準備
         var constraints = {
+            audio: false,
             video: {},
         }
         var item = navigator.mediaDevices.getUserMedia(constraints);
@@ -36,13 +37,15 @@
             //canvasへ書き込み
             var video = $("video");
             var canvas = $("canvas")[0];
-            canvas.width = video.width();
-            canvas.height = video.height();
+            // canvas.width = video.width();
+            // canvas.height = video.height();
+            canvas.width = video[0].videoWidth;
+            canvas.height = video[0].videoHeight;
             var context2d = canvas.getContext('2d');
             context2d.drawImage(video[0], 0, 0);
                 
             //Lightningに送信
-            var lexOrigin = "https://agility-saas-9287-dev-ed.lightning.force.com";
+            var lexOrigin = "https://momentum-saas-5317-dev-ed.lightning.force.com";
             var message = canvas.toDataURL('image/jpeg');
             parent.postMessage(message, lexOrigin);
         }
