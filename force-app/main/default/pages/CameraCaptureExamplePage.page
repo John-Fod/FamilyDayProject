@@ -1,5 +1,5 @@
 <apex:page sidebar="false" showHeader="false">
-    <video class="videoFrame" width="90%"></video><br/>
+    <video class="videoFrame" width="100%"></video><br/>
     <input type="button" id="capture" value="撮影"/>
     <!-- <hr/> -->
     <canvas height="0" width="0" style="visibility:hidden;position:fixed;top:-1000px;left:-1000px;"/>
@@ -37,8 +37,6 @@
             //canvasへ書き込み
             var video = $("video");
             var canvas = $("canvas")[0];
-            // canvas.width = video.width();
-            // canvas.height = video.height();
             canvas.width = video[0].videoWidth;
             canvas.height = video[0].videoHeight;
             var context2d = canvas.getContext('2d');

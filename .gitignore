@@ -1,0 +1,11 @@
+#general
+.DS_Store
+.manifest
+.sfdx
+
+*.zip
+*.resource
+*.log
+
+node_modules
+mdapi_output

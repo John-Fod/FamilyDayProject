@@ -230,13 +230,12 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent",
             "isDirectory": true,
             "size": 352,
-            "modifiedTime": 1532510117427,
-            "changeTime": 1532510117427,
+            "modifiedTime": 1532512966813,
+            "changeTime": 1532512966813,
             "contentHash": "393548a985de1327dd61c10aeb4734eff9ba3eba",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -259,14 +258,13 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent/CameraCaptureExampleComponent.cmp",
             "isDirectory": false,
-            "size": 516,
-            "modifiedTime": 1532509956069,
-            "changeTime": 1532509956069,
-            "contentHash": "22d67ab2e7290e3f59772d45845f55ac3ce54f43",
+            "size": 613,
+            "modifiedTime": 1532666932911,
+            "changeTime": 1532512932082,
+            "contentHash": "932ad59869ead2d646586c732caa58595d0159fc",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -289,14 +287,13 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent/CameraCaptureExampleComponent.css",
             "isDirectory": false,
-            "size": 10,
-            "modifiedTime": 1532071913546,
-            "changeTime": 1532071913546,
-            "contentHash": "44063bf628f237edaa1f3f358714dd40ac321703",
+            "size": 50,
+            "modifiedTime": 1532512924203,
+            "changeTime": 1532512924203,
+            "contentHash": "289bde040e4c416057bddfd84084f1013274a205",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -334,14 +331,13 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent/CameraCaptureExampleComponentController.js",
             "isDirectory": false,
-            "size": 545,
-            "modifiedTime": 1532329005703,
-            "changeTime": 1532329005703,
-            "contentHash": "89fb24cb50109af7c1211a716213b1e68d91dc32",
+            "size": 1661,
+            "modifiedTime": 1532666650698,
+            "changeTime": 1532512710483,
+            "contentHash": "f0dbb66e1eab818cfbfcba8d3e76efd3d47d9c69",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -349,14 +345,13 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent/CameraCaptureExampleComponentHelper.js",
             "isDirectory": false,
-            "size": 45,
-            "modifiedTime": 1532071913546,
-            "changeTime": 1532071913546,
-            "contentHash": "fa35ebecd73c127729bf311a95b613f711a6f10b",
+            "size": 220,
+            "modifiedTime": 1532512817827,
+            "changeTime": 1532512817827,
+            "contentHash": "6e62ae1fdbba4dfc90df83cfcbb232558f019454",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -530,13 +525,12 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo",
             "isDirectory": true,
             "size": 352,
-            "modifiedTime": 1532071687943,
-            "changeTime": 1532071687943,
+            "modifiedTime": 1532512713695,
+            "changeTime": 1532510784615,
             "contentHash": "a20e6bf08c1c395eec442bc8a27eda9270732988",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -560,13 +554,12 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp",
             "isDirectory": false,
             "size": 4364,
-            "modifiedTime": 1532336144945,
-            "changeTime": 1532336144945,
-            "contentHash": "f4ef3e63f06a3ee0e0f520ca928a4043249c31f6",
+            "modifiedTime": 1532510750265,
+            "changeTime": 1532510750266,
+            "contentHash": "2d9827c681c27cb4d1ecbc18112f3c4c197878da",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -652,8 +645,8 @@
             "isDirectory": false,
             "isMetadataFile": false,
             "size": 7976,
-            "modifiedTime": 1532510321299,
-            "changeTime": 1532510321299,
+            "modifiedTime": 1532666969366,
+            "changeTime": 1532666969366,
             "isWorkspace": false,
             "contentHash": "7b32dfdc02c422c5a5a0ee352fb6674fadd88c80"
         }
@@ -1099,7 +1092,7 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/pages",
             "isDirectory": true,
             "size": 128,
-            "modifiedTime": 1532072807196,
+            "modifiedTime": 1532511430681,
             "changeTime": 1532072807196,
             "contentHash": "4472c9cd5cb8ef7518faa0582b37b9ac04fc0a7e",
             "isMetadataFile": false,
@@ -1113,14 +1106,13 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/pages/CameraCaptureExamplePage.page",
             "isDirectory": false,
-            "size": 2011,
-            "modifiedTime": 1532510007205,
-            "changeTime": 1532510007205,
-            "contentHash": "8df96343950236a12037fea028c060a1daac0d54",
+            "size": 1920,
+            "modifiedTime": 1532511418395,
+            "changeTime": 1532511418396,
+            "contentHash": "b96e89a2c9188a88492c9f3f04a0af8423e6f79d",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
@@ -1246,15 +1238,15 @@
     [
         "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/settings",
         {
-            "state": "u",
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/settings",
             "isDirectory": true,
-            "isMetadataFile": false,
             "size": 96,
             "modifiedTime": 1532510201436,
             "changeTime": 1532510201436,
-            "isWorkspace": false,
-            "contentHash": "e364e4d3c503804e0ca6d6bb92ab9cc0ceac2327"
+            "contentHash": "e364e4d3c503804e0ca6d6bb92ab9cc0ceac2327",
+            "isMetadataFile": false,
+            "state": "u",
+            "isWorkspace": false
         }
     ],
     [
@@ -1335,10 +1327,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject",
             "isDirectory": true,
-            "size": 352,
-            "modifiedTime": 1532509670292,
-            "changeTime": 1532509670292,
-            "contentHash": "807b7aaa92451ec641bfc0e0a5d2bf0e1e9005a1",
+            "size": 512,
+            "modifiedTime": 1532666805147,
+            "changeTime": 1532666805147,
+            "contentHash": "be3ad118799300f3a4ab44d0e25ee22d5111643d",
             "isMetadataFile": false,
             "state": "u",
             "isWorkspace": true

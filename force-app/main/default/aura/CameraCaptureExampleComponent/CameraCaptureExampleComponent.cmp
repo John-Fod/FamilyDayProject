@@ -4,6 +4,7 @@
     <aura:attribute name="imageData" type="String" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.doRender}"/>
 
-    <iframe aura:id="vfFrame" allow="geolocation; microphone; camera; midi; encrypted-media;" width="800" height="800" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
+    <iframe aura:id="vfFrame" class="captureFrame" onload="{!c.onFrameLoaded}" allow="geolocation; microphone; camera; midi; encrypted-media;" src="{!'https://' + v.vfHost + '/apex/CameraCaptureExamplePage'}" />
 </aura:component>
