@@ -3,6 +3,9 @@
     <aura:handler name="change" value="{!v.imageInfo}" action="{!c.onImageInfoChange}"/>
     <aura:handler name="change" value="{!v.imageData}" action="{!c.onChangeImageData}"/>
 
+    <aura:attribute access="public" name="croppedImageData64" type="String"/>
+    <aura:attribute access="public" name="dragEvent" type="object"/>
+
     <aura:attribute access="private" name="userId" type="String"/>
     <aura:attribute access="private" name="datasets" type="Object[]"/>
     <aura:attribute access="private" name="imageInfo" type="Object"/>
@@ -10,15 +13,18 @@
     <aura:attribute access="private" name="isLoading" type="Boolean" default="false"/>
     <aura:attribute access="private" name="einsteinResponse" type="object"/>
     <aura:attribute access="private" name="selectedDatasetIndex" type="Integer" default="0"/>
-    <aura:attribute access="public" name="croppedImageData64" type="String"/>
 
-    <aura:attribute access="public" name="dragEvent" type="object"/>
+    <aura:attribute access="private" name="resultAnimations" type="Object" default=""/>
+    <aura:attribute access="private" name="gravity" type="Integer" default="5"/>
+    <aura:attribute access="private" name="animationIntervalId" type="String" default="null"/>
+
 
     <div class="slds-grid slds-wrap">
 
         <div class="slds-col slds-size_3-of-4 slds-m-around sldx-p-around_small">
             <div>
                 <canvas aura:id="imageCanvas" id="imageCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas>
+                <!-- <canvas aura:id="animationCanvas" id="animationCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas> -->
             </div>
         </div>
 

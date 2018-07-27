@@ -86,19 +86,33 @@
         component.set('v.croppedImageData64', imageData64);
     },
     callEinsteinAPI: function(component, contentVersionId, imageModelId, datasetIndex){
+        var self = this;
         if(!component.get('v.imageInfo') && !component.get("v.imageData")) return;
         var action = component.get('c.callEinsteinAPI');
+        var imageData64;
+        if(component.find("croppedCanvas") && component.find("croppedCanvas").getElement().height > 0){
+            imageData64 = component.find("croppedCanvas").getElement().toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/,'');
+        } else {
+            imageData64 = component.find("imageCanvas").getElement().toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/,'');
+        }
         action.setParams({
             "imageModelId": imageModelId,
             "contentVersionId": contentVersionId,
-            "imageData64":component.find("croppedCanvas").getElement().toDataURL('image/png').replace(/^data:image\/(png|jpg);base64,/,'')
+            "imageData64":imageData64
         });
         action.setCallback(this, function(response){
             console.log("response : ", response.getReturnValue());
             var einsteinResponse = response.getReturnValue();
-            console.log(einsteinResponse);
-            einsteinResponse.forEach(function(curLabel){
+            var resultAnimations = [];
+            einsteinResponse.forEach(function(curLabel, curLabelIndex){
                 curLabel.percent = Math.floor(curLabel.probability * 10000) / 100;
+                resultAnimations.push(new self.generateResultAnimation(component, curLabel, curLabelIndex, component.find("imageCanvas").getElement()));
+                component.set("v.resultAnimations", resultAnimations);
+                var interval = window.setInterval(
+                    $A.getCallback(function(){
+                        self.updateResultAnimation(component);
+                    }), 100
+                );
             })
             component.set('v.einsteinResponse', einsteinResponse);
             component.set('v.datasets[' + datasetIndex + '].einsteinResults', einsteinResponse);
@@ -163,5 +177,48 @@
             $A.util.addClass(tabsContents, "slds-show");
         }
         component.set('v.selectedDatasetIndex', tabIndex);
+    },
+    generateResultAnimation: function(component, result, rank, canvas){
+        var self = this;
+        var maxXVelocity = 3;
+        var yStartPosition = -40;
+        var negativeXVelocity = Math.random() < 0.5 ? -1 : 1;
+        var resultAnimation = {
+            "label":result.label,
+            "probability":result.probability,
+            "x":Math.random() * canvas.offsetWidth,
+            "y":yStartPosition,
+            "xVelocity":(Math.random() * maxXVelocity) * negativeXVelocity
+        }
+        return resultAnimation;
+    },
+    updateResultAnimation: function(component){
+        var self = this;
+        var resultAnimations = component.get("v.resultAnimations");
+        var gravity = component.get("v.gravity");
+        resultAnimations.forEach(function(curResultAnimation){
+            curResultAnimation.y += gravity;
+        });
+        var img = new Image();
+        img.src = component.get("v.imageData");
+        img.onload = function(){
+            var imageCanvas = component.find("imageCanvas");
+            var ctx = imageCanvas.getElement().getContext('2d');
+            var scalingFactor = self.resizeCanvas(component, ctx, img);
+            ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
+            self.renderResultAnimations(component, resultAnimations);
+            component.set("v.resultAnimations", resultAnimations);
+        }
+    },
+    renderResultAnimations: function(component, resultAnimations){
+        var self = this;
+        var imageCanvas = component.find("imageCanvas");
+        var ctx = imageCanvas.getElement().getContext('2d');
+        for(var i = 0; i < resultAnimations.length; i++){
+            ctx.fillStyle = 'rgba(91,26,133,0.8)';
+            ctx.fillRect(resultAnimations[i].x,resultAnimations[i].y,20,20);
+        }
+    },
+    renderResultAnimation: function(component, resultAnimation){
     }
 })

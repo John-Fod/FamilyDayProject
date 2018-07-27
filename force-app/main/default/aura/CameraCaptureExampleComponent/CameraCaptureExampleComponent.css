@@ -2,4 +2,8 @@
 }
 .THIS .captureFrame{
     border:none;
+    background-color:red;
+}
+.THIS .captureButton{
+    background-color:red;
 }
