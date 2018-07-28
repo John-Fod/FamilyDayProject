@@ -18,3 +18,16 @@
 .THIS dl dd:after{
     content:"%";
 }
+.THIS .einsteinButton{
+    transition:all 0.2s ease;
+    border-radius:5px;
+    background-color:white;
+    color:#0071be;
+    border:2px solid rgba(91,26,133,1);
+    width:100%;
+    text-align:center;
+}
+.THIS .einsteinButton:active,
+.THIS .einsteinButton:focus{
+    outline:0;
+}

@@ -211,8 +211,8 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent",
             "isDirectory": true,
             "size": 352,
-            "modifiedTime": 1532746396156,
-            "changeTime": 1532669125077,
+            "modifiedTime": 1532766585922,
+            "changeTime": 1532766585922,
             "contentHash": "393548a985de1327dd61c10aeb4734eff9ba3eba",
             "isMetadataFile": false,
             "state": "u",
@@ -326,10 +326,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/CameraCaptureExampleComponent/CameraCaptureExampleComponentHelper.js",
             "isDirectory": false,
-            "size": 219,
-            "modifiedTime": 1532746396156,
-            "changeTime": 1532668780400,
-            "contentHash": "45b48a76830c7d6cd7ffe819f9cfd0bf67418d4d",
+            "size": 306,
+            "modifiedTime": 1532766465379,
+            "changeTime": 1532766465379,
+            "contentHash": "18196cf2770bfe78f7ae7cc28fc052938c11c308",
             "isMetadataFile": false,
             "state": "u",
             "isWorkspace": false
@@ -505,10 +505,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo",
             "isDirectory": true,
-            "size": 384,
-            "modifiedTime": 1532759563645,
-            "changeTime": 1532755127989,
-            "contentHash": "5cd72a6036daf77db057bd28c124f25223cdc2e8",
+            "size": 352,
+            "modifiedTime": 1532767973990,
+            "changeTime": 1532767898891,
+            "contentHash": "a20e6bf08c1c395eec442bc8a27eda9270732988",
             "isMetadataFile": false,
             "state": "u",
             "isWorkspace": false
@@ -533,10 +533,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.cmp",
             "isDirectory": false,
-            "size": 4948,
-            "modifiedTime": 1532756276184,
-            "changeTime": 1532756276184,
-            "contentHash": "391a510d552c415fba86048bffe6203bba54d2aa",
+            "size": 6240,
+            "modifiedTime": 1532769573527,
+            "changeTime": 1532769573527,
+            "contentHash": "a4dce8e78ea453e3da1c5604d9c11570d70164c2",
             "isMetadataFile": false,
             "state": "u",
             "isWorkspace": false
@@ -560,16 +560,15 @@
     [
         "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.css",
         {
+            "state": "u",
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemo.css",
             "isDirectory": false,
-            "size": 264,
-            "modifiedTime": 1532746396161,
-            "changeTime": 1532077380184,
-            "contentHash": "19b9b5ef16a0aefd42c15be0a11f4d748f1fc7ff",
             "isMetadataFile": false,
-            "state": "u",
+            "size": 544,
+            "modifiedTime": 1532769669648,
+            "changeTime": 1532769669648,
             "isWorkspace": false,
-            "isArtifactRoot": false
+            "contentHash": "ba05f2a3a7a07b777f6a1250da1a9098be0f32df"
         }
     ],
     [
@@ -606,28 +605,27 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoController.js",
             "isDirectory": false,
-            "size": 3618,
-            "modifiedTime": 1532746396162,
-            "changeTime": 1532074760629,
-            "contentHash": "1266997c4ee8afc3e952e99b0d58f54f15df60a5",
+            "size": 3932,
+            "modifiedTime": 1532768901040,
+            "changeTime": 1532768901040,
+            "contentHash": "c88682b6ada6d0efd0a45eed6e31bbd4fa0a06d0",
             "isMetadataFile": false,
             "state": "u",
-            "isWorkspace": false,
-            "isArtifactRoot": false
+            "isWorkspace": false
         }
     ],
     [
         "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoHelper.js",
         {
-            "state": "u",
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/aura/einsteinVisionDemo/einsteinVisionDemoHelper.js",
             "isDirectory": false,
+            "size": 15428,
+            "modifiedTime": 1532769087058,
+            "changeTime": 1532769087058,
+            "contentHash": "11aca8da5b0b6e8d3e3cada22486e00ba54327a2",
             "isMetadataFile": false,
-            "size": 14987,
-            "modifiedTime": 1532759563645,
-            "changeTime": 1532759563645,
-            "isWorkspace": false,
-            "contentHash": "8f4004cc25ad9643891c1efe607289dd72ebdf62"
+            "state": "u",
+            "isWorkspace": false
         }
     ],
     [
@@ -1306,7 +1304,7 @@
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject",
             "isDirectory": true,
             "size": 512,
-            "modifiedTime": 1532747704359,
+            "modifiedTime": 1532767709590,
             "changeTime": 1532666805147,
             "contentHash": "be3ad118799300f3a4ab44d0e25ee22d5111643d",
             "isMetadataFile": false,
@@ -1540,10 +1538,10 @@
         {
             "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources",
             "isDirectory": true,
-            "size": 512,
-            "modifiedTime": 1532748022873,
-            "changeTime": 1532748022873,
-            "contentHash": "b13e71b9e0760384612872330cdf0dfca71307f0",
+            "size": 576,
+            "modifiedTime": 1532765684143,
+            "changeTime": 1532765684143,
+            "contentHash": "4aeaf629072e9af046eae7c8468dd09307e2f69d",
             "isMetadataFile": false,
             "state": "u"
         }
@@ -1557,6 +1555,331 @@
             "modifiedTime": 1532748022878,
             "changeTime": 1532748022878,
             "contentHash": "1f5fbe1af89d52d244c78561e9fa6baf555ce7e3",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face.resource-meta.xml",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face.resource-meta.xml",
+            "isDirectory": false,
+            "size": 209,
+            "modifiedTime": 1532765683930,
+            "changeTime": 1532765683930,
+            "contentHash": "a26956096455c1ad8f2625a5a817d45b35678b07",
+            "isMetadataFile": true,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/._.DS_Store",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/._.DS_Store",
+            "isDirectory": false,
+            "size": 120,
+            "modifiedTime": 1532765684144,
+            "changeTime": 1532765684144,
+            "contentHash": "0bed7e90c2bade9763fa18f1fb4441d31f91c87c",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._.DS_Store",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._.DS_Store",
+            "isDirectory": false,
+            "size": 120,
+            "modifiedTime": 1532765684145,
+            "changeTime": 1532765684145,
+            "contentHash": "0bed7e90c2bade9763fa18f1fb4441d31f91c87c",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._bear.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._bear.png",
+            "isDirectory": false,
+            "size": 578,
+            "modifiedTime": 1532765684146,
+            "changeTime": 1532765684146,
+            "contentHash": "fefc32ccc06e64f6a526f05544d9c0d32e93b873",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._cat.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._cat.png",
+            "isDirectory": false,
+            "size": 489,
+            "modifiedTime": 1532765684146,
+            "changeTime": 1532765684146,
+            "contentHash": "b353e071b1e54b7823f15800f115cc166232cf69",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._dog.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._dog.png",
+            "isDirectory": false,
+            "size": 738,
+            "modifiedTime": 1532765684161,
+            "changeTime": 1532765684161,
+            "contentHash": "8dc38ab8f5f033ab7572cb6d086eb89e5d16a4ce",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._elephant.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._elephant.png",
+            "isDirectory": false,
+            "size": 706,
+            "modifiedTime": 1532765684170,
+            "changeTime": 1532765684170,
+            "contentHash": "f11dabfeac98465efa3dde8443acb3e995d83116",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._giraffe.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._giraffe.png",
+            "isDirectory": false,
+            "size": 503,
+            "modifiedTime": 1532765684171,
+            "changeTime": 1532765684171,
+            "contentHash": "a3f6de4cfb444d44baec11a392a1b2809e882edb",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._lion.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._lion.png",
+            "isDirectory": false,
+            "size": 503,
+            "modifiedTime": 1532765684171,
+            "changeTime": 1532765684171,
+            "contentHash": "6362b8b181f0b6bada71752dd766f580bcf32c81",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._tiger.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img/._tiger.png",
+            "isDirectory": false,
+            "size": 569,
+            "modifiedTime": 1532765684172,
+            "changeTime": 1532765684172,
+            "contentHash": "9f7931154acc4b6d3d3d240ed99031ba16acc422",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/.DS_Store",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/.DS_Store",
+            "isDirectory": false,
+            "size": 6148,
+            "modifiedTime": 1532765684173,
+            "changeTime": 1532765684173,
+            "contentHash": "3bab11b62c928e2185757905a7d4844a1037bfbb",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/.DS_Store",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/.DS_Store",
+            "isDirectory": false,
+            "size": 6148,
+            "modifiedTime": 1532765684174,
+            "changeTime": 1532765684174,
+            "contentHash": "13af2f31667aeb47496c9674a8f7354649da6911",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/bear.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/bear.png",
+            "isDirectory": false,
+            "size": 246802,
+            "modifiedTime": 1532765684174,
+            "changeTime": 1532765684174,
+            "contentHash": "1e3326bd5fdd33444f278c532778c1a156295cbc",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/cat.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/cat.png",
+            "isDirectory": false,
+            "size": 22889,
+            "modifiedTime": 1532765684175,
+            "changeTime": 1532765684175,
+            "contentHash": "aa118e259c37a41b6195bef64c5b1b4894c302a1",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/dog.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/dog.png",
+            "isDirectory": false,
+            "size": 99830,
+            "modifiedTime": 1532765684177,
+            "changeTime": 1532765684177,
+            "contentHash": "62a15b5a7ba0e979c6cc92c2998cd51c064bebc8",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/elephant.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/elephant.png",
+            "isDirectory": false,
+            "size": 23351,
+            "modifiedTime": 1532765684178,
+            "changeTime": 1532765684178,
+            "contentHash": "c8ad1bf457ab4810e86d8bc02bbff058428a6778",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/giraffe.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/giraffe.png",
+            "isDirectory": false,
+            "size": 293366,
+            "modifiedTime": 1532765684179,
+            "changeTime": 1532765684179,
+            "contentHash": "7a48bf832a0317a8ca5ddff3dd3c3b731fff96bb",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/lion.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/lion.png",
+            "isDirectory": false,
+            "size": 67586,
+            "modifiedTime": 1532765684180,
+            "changeTime": 1532765684180,
+            "contentHash": "76012e6231409febab03388cee26802605691f28",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/tiger.png",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img/tiger.png",
+            "isDirectory": false,
+            "size": 366772,
+            "modifiedTime": 1532765684181,
+            "changeTime": 1532765684181,
+            "contentHash": "eac21006cc7833a6ac8f4934b68847030e9577f3",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1532765684145,
+            "changeTime": 1532765684145,
+            "contentHash": "5cda14bbdbe2bb6d0c8c06097f52015f3d086428",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX",
+            "isDirectory": true,
+            "size": 96,
+            "modifiedTime": 1532765684144,
+            "changeTime": 1532765684144,
+            "contentHash": "0189424a5a60fed329fa868e83bf2760d97a4778",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face",
+            "isDirectory": true,
+            "size": 128,
+            "modifiedTime": 1532765684172,
+            "changeTime": 1532765684172,
+            "contentHash": "d1efa83081343f43e8d588925371499356159c9a",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/__MACOSX/resources/img",
+            "isDirectory": true,
+            "size": 320,
+            "modifiedTime": 1532765684172,
+            "changeTime": 1532765684172,
+            "contentHash": "45fdd6b20b906b2a644861edfd10c9b24a2ccd08",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources",
+            "isDirectory": true,
+            "size": 160,
+            "modifiedTime": 1532765684181,
+            "changeTime": 1532765684181,
+            "contentHash": "bfc15487d44e6e857fdc8021bb5393332cbe1870",
+            "isMetadataFile": false,
+            "state": "u"
+        }
+    ],
+    [
+        "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img",
+        {
+            "sourcePath": "/Users/jfodrocy/familyDayProject/familyDayProject/force-app/main/default/staticresources/animal_face/resources/img",
+            "isDirectory": true,
+            "size": 320,
+            "modifiedTime": 1532765684180,
+            "changeTime": 1532765684180,
+            "contentHash": "c4d90ecf29d1ae639a842cd2bf410459a3d710e5",
             "isMetadataFile": false,
             "state": "u"
         }

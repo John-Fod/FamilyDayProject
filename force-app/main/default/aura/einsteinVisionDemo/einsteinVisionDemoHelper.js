@@ -118,6 +118,7 @@
                         self.updateResultAnimations(component);
                     }), 50
                 );
+                component.set("v.animationIntervalId", interval);
             });
             window.setTimeout(
                 $A.getCallback(function(){
@@ -150,47 +151,48 @@
         var scalingFactor = Math.max(horizontalScalingFactor, verticalScalingFactor);
         return scalingFactor;
     },
-    setCurrentTab: function(component, tabIndex){
-        var self = this;
-        var tabs = component.find("tab");
-        var tabsContents = component.find("tabsContent");
-        if(Array.isArray(tabs)){
-            tabs.forEach(function(curTab, curTabIndex){
-                if(curTabIndex != tabIndex){
-                    $A.util.removeClass(curTab, "slds-is-active");
-                    curTab.getElement().setAttribute('arai-selected', 'false');
-                    curTab.getElement().tabIndex = -1;
-                } else {
-                    $A.util.addClass(curTab, "slds-is-active");
-                    curTab.getElement().setAttribute('arai-selected', 'false');
-                    curTab.getElement().tabIndex = 0;
-                }
-            })
-        } else {
-            $A.util.removeClass(tabs, "slds-is-active");
-            tabs.getElement().setAttribute('arai-selected', 'false');
-            tabs.getElement().tabIndex = -1;
-        }
+    // setCurrentTab: function(component, tabIndex){
+    //     var self = this;
+    //     var tabs = component.find("tab");
+    //     var tabsContents = component.find("tabsContent");
+    //     if(Array.isArray(tabs)){
+    //         tabs.forEach(function(curTab, curTabIndex){
+    //             if(curTabIndex != tabIndex){
+    //                 $A.util.removeClass(curTab, "slds-is-active");
+    //                 curTab.getElement().setAttribute('arai-selected', 'false');
+    //                 curTab.getElement().tabIndex = -1;
+    //             } else {
+    //                 $A.util.addClass(curTab, "slds-is-active");
+    //                 curTab.getElement().setAttribute('arai-selected', 'false');
+    //                 curTab.getElement().tabIndex = 0;
+    //             }
+    //         })
+    //     } else {
+    //         $A.util.removeClass(tabs, "slds-is-active");
+    //         tabs.getElement().setAttribute('arai-selected', 'false');
+    //         tabs.getElement().tabIndex = -1;
+    //     }
 
-        if(Array.isArray(tabsContents)){
-            tabsContents.forEach(function(curTabsContent, curTabsContentIndex){
-                if(curTabsContentIndex != tabIndex){
-                    $A.util.removeClass(curTabsContent, "slds-show");
-                    $A.util.addClass(curTabsContent, "slds-hide");
-                } else {
-                    $A.util.removeClass(curTabsContent, "slds-hide");
-                    $A.util.addClass(curTabsContent, "slds-show");
-                }
-            })
-        } else {
-            $A.util.removeClass(tabsContents, "slds-hide");
-            $A.util.addClass(tabsContents, "slds-show");
-        }
-        component.set('v.selectedDatasetIndex', tabIndex);
-    },
+    //     if(Array.isArray(tabsContents)){
+    //         tabsContents.forEach(function(curTabsContent, curTabsContentIndex){
+    //             if(curTabsContentIndex != tabIndex){
+    //                 $A.util.removeClass(curTabsContent, "slds-show");
+    //                 $A.util.addClass(curTabsContent, "slds-hide");
+    //             } else {
+    //                 $A.util.removeClass(curTabsContent, "slds-hide");
+    //                 $A.util.addClass(curTabsContent, "slds-show");
+    //             }
+    //         })
+    //     } else {
+    //         $A.util.removeClass(tabsContents, "slds-hide");
+    //         $A.util.addClass(tabsContents, "slds-show");
+    //     }
+    //     component.set('v.selectedDatasetIndex', tabIndex);
+    // },
     generateResultAnimations: function(component, einsteinResults, callback){
         var self = this;
         var resultAnimations = [];
+        if(!component.find('imageCanvas')) return;
         var canvas = component.find("imageCanvas").getElement();
         einsteinResults.forEach(function(curEinsteinResult, curEinsteinResultIndex){
             resultAnimations.push(self.generateResultAnimation(component, curEinsteinResult, curEinsteinResultIndex, canvas));
@@ -235,6 +237,7 @@
         img.src = component.get("v.imageData");;
         img.onload = function(){
             var imageCanvas = component.find("imageCanvas");
+            if(!imageCanvas) return;
             var ctx = imageCanvas.getElement().getContext('2d');
             var scalingFactor = self.resizeCanvas(component, ctx, img);
             ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
@@ -312,5 +315,10 @@
         }
     },
     renderResultAnimation: function(component, resultAnimation){
+    },
+    stopAnimation: function(component){
+        if(component.get("v.animationIntervalId")){
+            clearInterval(component.get("v.animationIntervalId"));
+        }
     }
 })

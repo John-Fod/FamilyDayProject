@@ -1,5 +1,6 @@
 <aura:component implements="force:appHostable" controller="einsteinVisionDemoController">
     <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="destroy" value="{!this}" action="{!c.onDestroy}"/>
     <aura:handler name="change" value="{!v.imageInfo}" action="{!c.onImageInfoChange}"/>
     <aura:handler name="change" value="{!v.imageData}" action="{!c.onChangeImageData}"/>
 
@@ -25,7 +26,6 @@
         <div class="slds-col slds-size_3-of-4 slds-m-around sldx-p-around_small">
             <div>
                 <canvas aura:id="imageCanvas" id="imageCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas>
-                <!-- <canvas aura:id="animationCanvas" id="animationCanvas" onmousedown="{!c.onCanvasMouseDown}" onmouseup="{!c.onCanvasMouseUp}" onmouseout="{!c.onCanvasMouseOut}" onmousemove="{!c.onCanvasMouseMove}"></canvas> -->
             </div>
         </div>
 
@@ -51,7 +51,35 @@
             </div>
 
 
+
+
             <div class="slds-theme_default slds-scrollable_y slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_medium slds-m-top_large">
+                <div>
+                    <ul>
+                        <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
+                            <li
+                                aura:id="tab"
+                                data-tabindex="{#datasetIndex}"
+                                data-clickaction="getEstimation"
+                                data-modelid="{#dataset.Image_Models__r.records[0].ModelId__c}"
+                                data-datasetid="{#dataset.Id}"
+                                data-name="{#dataset.Name}"
+                                data-datasetindex="{#datasetIndex}"
+                                titel="{#'Tab ' + datasetIndex}"
+                                role="presentation"
+                                onclick="{!c.handleEinsteinClick}"
+                                class="slds-m-top_medium"
+                            >
+                                <button class="einsteinButton" id="{#'tab-default-' + datasetIndex + '__item'}" >
+                                    {#dataset.Name}
+                                </button>
+                            </li>
+                        </aura:iteration>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- <div class="slds-theme_default slds-scrollable_y slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_medium slds-m-top_large">
                 <div class="slds-tabs_default">
                     <ul class="slds-tabs_default__nav" role="tablist" onclick="{!c.handleClickTabList}">
                         <aura:iteration items="{!v.datasets}" var="dataset" indexVar="datasetIndex">
@@ -73,7 +101,7 @@
                         </div>
                     </aura:iteration>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>

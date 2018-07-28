@@ -1,6 +1,10 @@
 ({
     onInit: function(component, event, helper){
+        helper.stopAnimation(component);
         helper.initializeData(component);
+    },
+    onDestroy: function(component, event, helper){
+        helper.stopAnimation(component);
     },
     onUploadFinished : function(component, event, helper) {
         var file = event.getParam("files")[0];
@@ -10,9 +14,11 @@
         helper.drawNewImage(component);
     },
     onChangeImageData: function(component, event, helper){
+        helper.stopAnimation(component);
         helper.drawCameraImage(component);
     },
     handleEinsteinClick: function(component, event, helper){
+        helper.stopAnimation(component);
         var target = event.target;
         if(event.target === event.currentTarget) return;
         var modelId, datasetIndex = null;
@@ -44,7 +50,9 @@
     },
     onCanvasMouseDown: function(component, event, helper){
         var dragEvent = {};
+        if(!component.find('imageCanvas')) return;
         var rect = component.find('imageCanvas').getElement().getBoundingClientRect();
+        helper.stopAnimation(component);
         dragEvent.isActive = true;
         dragEvent.startX = event.clientX - rect.left;
         dragEvent.startY = event.clientY - rect.top;
