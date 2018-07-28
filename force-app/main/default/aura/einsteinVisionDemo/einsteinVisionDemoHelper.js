@@ -1,4 +1,11 @@
 ({
+    elephant:null,
+    lion:null,
+    bear:null,
+    giraffe:null,
+    tiger:null,
+    dog:null,
+    cat:null,
     scalingFactor:null,
     initializeData : function(component) {
         var action = component.get('c.initializeData');
@@ -51,7 +58,6 @@
         var imageCanvas = component.find('imageCanvas');
         var ctx = imageCanvas.getElement().getContext('2d');
         var img = new Image();
-        // img.src = "data:img/jpg;base64," + component.get('v.imageInfo.versionData');
         img.src = component.get("v.imageData");
         img.onload = function(){
             var dE = component.get('v.dragEvent');
@@ -104,16 +110,20 @@
             console.log("response : ", response.getReturnValue());
             var einsteinResponse = response.getReturnValue();
             var resultAnimations = [];
-            einsteinResponse.forEach(function(curLabel, curLabelIndex){
-                curLabel.percent = Math.floor(curLabel.probability * 10000) / 100;
-                resultAnimations.push(new self.generateResultAnimation(component, curLabel, curLabelIndex, component.find("imageCanvas").getElement()));
+            self.generateResultAnimations(component, einsteinResponse, function(resultAnimations){
                 component.set("v.resultAnimations", resultAnimations);
+                component.set("v.bouncing", true);
                 var interval = window.setInterval(
                     $A.getCallback(function(){
-                        self.updateResultAnimation(component);
-                    }), 100
+                        self.updateResultAnimations(component);
+                    }), 50
                 );
-            })
+            });
+            window.setTimeout(
+                $A.getCallback(function(){
+                    component.set("v.bouncing", false);
+                }), 3000
+            );
             component.set('v.einsteinResponse', einsteinResponse);
             component.set('v.datasets[' + datasetIndex + '].einsteinResults', einsteinResponse);
             component.set('v.isLoading', false);
@@ -178,29 +188,51 @@
         }
         component.set('v.selectedDatasetIndex', tabIndex);
     },
+    generateResultAnimations: function(component, einsteinResults, callback){
+        var self = this;
+        var resultAnimations = [];
+        var canvas = component.find("imageCanvas").getElement();
+        einsteinResults.forEach(function(curEinsteinResult, curEinsteinResultIndex){
+            resultAnimations.push(self.generateResultAnimation(component, curEinsteinResult, curEinsteinResultIndex, canvas));
+        });
+        callback(resultAnimations);
+    },
     generateResultAnimation: function(component, result, rank, canvas){
         var self = this;
-        var maxXVelocity = 3;
+        var maxXVelocity = 25;
+        var maxYVelocity = 25;
+        var minXVelocity = 10;
+        var minYVelocity = 10;
         var yStartPosition = -40;
         var negativeXVelocity = Math.random() < 0.5 ? -1 : 1;
+        var negativeYVelocity = Math.random() < 0.5 ? -1 : 1;
+        var image = null;
+        if($A.get("$Resource." + result.label)){
+            var image = new Image();
+            image.src = $A.get("$Resource." + result.label);
+        }
         var resultAnimation = {
             "label":result.label,
             "probability":result.probability,
+            "rank":rank,
             "x":Math.random() * canvas.offsetWidth,
-            "y":yStartPosition,
-            "xVelocity":(Math.random() * maxXVelocity) * negativeXVelocity
+            "y":Math.random() * canvas.offsetHeight,
+            "xVelocity": Math.random() * (maxXVelocity - minXVelocity) + minXVelocity,
+            "yVelocity": Math.random() * (maxYVelocity - minYVelocity) + minYVelocity,
+            "image":image
         }
         return resultAnimation;
     },
-    updateResultAnimation: function(component){
+    updateResultAnimations: function(component){
         var self = this;
         var resultAnimations = component.get("v.resultAnimations");
         var gravity = component.get("v.gravity");
+        var canvasComponent = component.find("imageCanvas");
         resultAnimations.forEach(function(curResultAnimation){
-            curResultAnimation.y += gravity;
+            self.updateResultAnimation(component, curResultAnimation, canvasComponent.getElement());
         });
         var img = new Image();
-        img.src = component.get("v.imageData");
+        img.src = component.get("v.imageData");;
         img.onload = function(){
             var imageCanvas = component.find("imageCanvas");
             var ctx = imageCanvas.getElement().getContext('2d');
@@ -210,13 +242,73 @@
             component.set("v.resultAnimations", resultAnimations);
         }
     },
+    updateResultAnimation: function(component, resultAnimation, canvas){
+        //Get the width of what is being rendered
+        var renderedWidth = null;
+        var renderedHeight = null;
+        if(resultAnimation.image == null || resultAnimation.image.src == null){
+            var ctx = canvas.getContext("2d");
+            var textMeasure = ctx.measureText(resultAnimation.label);
+            renderedWidth = textMeasure.width;
+            //renderedHeight = textMeasure.emHeightAscent + textMeasure.emHeightDescent;
+            renderedHeight = 30;
+        } else {
+            if(resultAnimation.image.complete){
+                renderedWidth = resultAnimation.image.width;
+                renderedHeight = resultAnimation.image.height;
+            }
+        }
+        if(component.get("v.bouncing")){
+            if((resultAnimation.x + renderedWidth >= canvas.width && resultAnimation.xVelocity > 0) || (resultAnimation.x < 0 && resultAnimation.xVelocity < 0)){
+                resultAnimation.xVelocity = resultAnimation.xVelocity * -1;
+            }
+            if((resultAnimation.y + renderedHeight >= canvas.height && resultAnimation.yVelocity > 0) || (resultAnimation.y < 0 && resultAnimation.yVelocity < 0)){
+                resultAnimation.yVelocity = resultAnimation.yVelocity * -1;
+            }
+        } else if(resultAnimation.rank <= 3){
+            var targetX = 40;
+            var targetY = 200 * resultAnimation.rank + 20;
+            var xDistance = targetX - resultAnimation.x;
+            var yDistance = targetY - resultAnimation.y;
+            var maxSpeed = 40;
+            var innerBox = 10;
+            var speedMultiplier = 0.08;
+            var innerBoxSpeedMultiplier = 0.2
+            if(Math.abs(xDistance) < innerBox){
+                resultAnimation.xVelocity = innerBoxSpeedMultiplier * xDistance;
+            } else {
+                if(resultAnimation.x < targetX){
+                    resultAnimation.xVelocity = Math.min(maxSpeed, resultAnimation.xVelocity + speedMultiplier * xDistance);
+                } else {
+                    resultAnimation.xVelocity = Math.max(maxSpeed * -1, resultAnimation.xVelocity + speedMultiplier * xDistance);
+                }
+            }
+            if(Math.abs(yDistance) < innerBox){
+                resultAnimation.yVelocity = innerBoxSpeedMultiplier * yDistance;
+            } else {
+                if(resultAnimation.y < targetY){
+                    resultAnimation.yVelocity = Math.min(maxSpeed, resultAnimation.yVelocity + speedMultiplier * yDistance);
+                } else {
+                    resultAnimation.yVelocity = Math.max(maxSpeed * -1, resultAnimation.yVelocity + speedMultiplier * yDistance);
+                }
+            }
+        }
+        resultAnimation.y = resultAnimation.y + resultAnimation.yVelocity;
+        resultAnimation.x = resultAnimation.x + resultAnimation.xVelocity;
+    },
     renderResultAnimations: function(component, resultAnimations){
         var self = this;
         var imageCanvas = component.find("imageCanvas");
         var ctx = imageCanvas.getElement().getContext('2d');
         for(var i = 0; i < resultAnimations.length; i++){
-            ctx.fillStyle = 'rgba(91,26,133,0.8)';
-            ctx.fillRect(resultAnimations[i].x,resultAnimations[i].y,20,20);
+            if(!resultAnimations[i].image){
+                ctx.font = "30px Arial";
+                ctx.fillText(resultAnimations[i].label, resultAnimations[i].x, resultAnimations[i].y);
+            } else {
+                if(resultAnimations[i].image.complete){
+                    ctx.drawImage(resultAnimations[i].image,resultAnimations[i].x,resultAnimations[i].y);
+                }
+            }
         }
     },
     renderResultAnimation: function(component, resultAnimation){

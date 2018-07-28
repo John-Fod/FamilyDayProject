@@ -17,6 +17,7 @@
     <aura:attribute access="private" name="resultAnimations" type="Object" default=""/>
     <aura:attribute access="private" name="gravity" type="Integer" default="5"/>
     <aura:attribute access="private" name="animationIntervalId" type="String" default="null"/>
+    <aura:attribute access="private" name="bouncing" type="Boolean" default="false"/>
 
 
     <div class="slds-grid slds-wrap">
