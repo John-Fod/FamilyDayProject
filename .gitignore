@@ -6,6 +6,7 @@
 *.zip
 *.resource
 *.log
+*.swp
 
 node_modules
 mdapi_output
