@@ -16,9 +16,11 @@
     <aura:attribute access="private" name="selectedDatasetIndex" type="Integer" default="0"/>
 
     <aura:attribute access="private" name="resultAnimations" type="Object" default=""/>
+    <aura:attribute access="private" name="loadingAnimations" type="Object" default=""/>
     <aura:attribute access="private" name="gravity" type="Integer" default="5"/>
     <aura:attribute access="private" name="animationIntervalId" type="String" default="null"/>
     <aura:attribute access="private" name="bouncing" type="Boolean" default="false"/>
+    <aura:attribute access="private" name="resultAnimationsAlpha" type="Double" default="0"/>
 
 
     <div class="slds-grid slds-wrap">
@@ -70,7 +72,7 @@
                                 onclick="{!c.handleEinsteinClick}"
                                 class="slds-m-top_medium"
                             >
-                                <button class="einsteinButton" id="{#'tab-default-' + datasetIndex + '__item'}" >
+                                <button class="einsteinButton" disabled="{!v.isLoading || v.imageData == null}" id="{#'tab-default-' + datasetIndex + '__item'}" >
                                     {#dataset.Name}
                                 </button>
                             </li>

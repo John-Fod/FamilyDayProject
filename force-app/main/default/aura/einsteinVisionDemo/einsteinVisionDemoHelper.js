@@ -113,12 +113,6 @@
             self.generateResultAnimations(component, einsteinResponse, function(resultAnimations){
                 component.set("v.resultAnimations", resultAnimations);
                 component.set("v.bouncing", true);
-                var interval = window.setInterval(
-                    $A.getCallback(function(){
-                        self.updateResultAnimations(component);
-                    }), 50
-                );
-                component.set("v.animationIntervalId", interval);
             });
             window.setTimeout(
                 $A.getCallback(function(){
@@ -130,8 +124,73 @@
             component.set('v.isLoading', false);
         });
         component.set('v.isLoading', true);
+        var loadingAnimations = self.generateLoadingAnimations(component);
+        component.set("v.loadingAnimations", loadingAnimations);
+        component.set("v.resultAnimations", []);
+        var interval = window.setInterval(
+            $A.getCallback(function(){
+                self.updateResultAnimations(component);
+            }), 50
+        );
+        component.set("v.animationIntervalId", interval);
         action.setStorable();
         $A.enqueueAction(action);
+    },
+    generateLoadingAnimations: function(component){
+        var self = this;
+        var loadingAnimations = {};
+        var canvas = component.find("imageCanvas").getElement();
+        var maxXVelocity = 70;
+        var minXVelocity = 60;
+        var maxYVelocity = 80;
+        var minYVelocity = 70;
+        var xVelocity = (Math.floor(Math.random() * ((maxXVelocity - minXVelocity) + minXVelocity)) * -1);
+        var yVelocity = (Math.floor(Math.random() * ((maxYVelocity - minYVelocity) + minYVelocity)) * -1);
+        //var xVelocity = 50;
+        //var yVelocity = 60;
+        var einsteinPlaneImage = new Image();
+        einsteinPlaneImage.src = $A.get("$Resource.einsteinPlane");
+        var einsteinRocketImage = new Image();
+        einsteinRocketImage.src = $A.get("$Resource.einsteinRocket");
+        loadingAnimations["einsteinPlane"] = {
+            "label":"Einstein Plane",
+            "y":Math.floor(Math.random() * (canvas.height * 0.75 - (canvas.height * 0.25)) + canvas.height * 0.25),
+            "x":canvas.width,
+            "xVelocity":xVelocity,
+            "image":einsteinPlaneImage
+        };
+        loadingAnimations["einsteinRocket"] = {
+            "label":"Einstein Rocket",
+            "x":Math.floor(Math.random() * (canvas.width * 0.75 - canvas.width * 0.25) + canvas.width * 0.25),
+            "y":canvas.height,
+            "yVelocity":yVelocity,
+            "image":einsteinRocketImage
+        };
+        console.log('loadingAnimations : ', loadingAnimations);
+        return loadingAnimations;
+    },
+    updateLoadingAnimations: function(component){
+        var loadingAnimations = component.get("v.loadingAnimations");
+        if(loadingAnimations && loadingAnimations.einsteinPlane){
+            loadingAnimations.einsteinPlane.x = loadingAnimations.einsteinPlane.x + loadingAnimations.einsteinPlane.xVelocity;
+        }
+        if(loadingAnimations && loadingAnimations.einsteinRocket){
+            loadingAnimations.einsteinRocket.y = loadingAnimations.einsteinRocket.y + loadingAnimations.einsteinRocket.yVelocity;
+        }
+        component.set("v.loadingAnimations", loadingAnimations);
+    },
+    renderLoadingAnimations: function(component, loadingAnimations){
+        var imageCanvas = component.find("imageCanvas");
+        var ctx = imageCanvas.getElement().getContext('2d');
+        ctx.globalAlpha = 1;
+        if(!loadingAnimations) return;
+        if(loadingAnimations.einsteinPlane && loadingAnimations.einsteinPlane.image && loadingAnimations.einsteinPlane.image.complete){
+            ctx.drawImage(loadingAnimations.einsteinPlane.image, loadingAnimations.einsteinPlane.x, loadingAnimations.einsteinPlane.y);
+        }
+        if(loadingAnimations.einsteinRocket && loadingAnimations.einsteinRocket.image && loadingAnimations.einsteinRocket.image.complete){
+            ctx.drawImage(loadingAnimations.einsteinRocket.image, loadingAnimations.einsteinRocket.x, loadingAnimations.einsteinRocket.y);
+        }
+        console.log('rendered');
     },
     /* Resize Canvas
     DESC: Resize the canvas and save the results in the helper.scalingFactor attribute */
@@ -208,6 +267,7 @@
         var yStartPosition = -40;
         var negativeXVelocity = Math.random() < 0.5 ? -1 : 1;
         var negativeYVelocity = Math.random() < 0.5 ? -1 : 1;
+        var showResult = false;
         var image = null;
         if($A.get("$Resource." + result.label)){
             var image = new Image();
@@ -216,6 +276,8 @@
         var resultAnimation = {
             "label":result.label,
             "probability":result.probability,
+            "alpha":0.0,
+            "backgroundAlpha":0.0,
             "rank":rank,
             "x":Math.random() * canvas.offsetWidth,
             "y":Math.random() * canvas.offsetHeight,
@@ -223,16 +285,23 @@
             "yVelocity": Math.random() * (maxYVelocity - minYVelocity) + minYVelocity,
             "image":image
         }
+        console.log('resultAnimation : ', resultAnimation);
         return resultAnimation;
     },
     updateResultAnimations: function(component){
         var self = this;
         var resultAnimations = component.get("v.resultAnimations");
+        var loadingAnimations = component.get("v.loadingAnimations");
         var gravity = component.get("v.gravity");
         var canvasComponent = component.find("imageCanvas");
-        resultAnimations.forEach(function(curResultAnimation){
-            self.updateResultAnimation(component, curResultAnimation, canvasComponent.getElement());
-        });
+        if(resultAnimations && resultAnimations.length){
+            resultAnimations.forEach(function(curResultAnimation){
+                self.updateResultAnimation(component, curResultAnimation, canvasComponent.getElement());
+            });
+        }
+        if(loadingAnimations){
+            self.updateLoadingAnimations(component);
+        }
         var img = new Image();
         img.src = component.get("v.imageData");;
         img.onload = function(){
@@ -241,8 +310,13 @@
             var ctx = imageCanvas.getElement().getContext('2d');
             var scalingFactor = self.resizeCanvas(component, ctx, img);
             ctx.drawImage(img, 0, 0, img.width * scalingFactor, img.height * scalingFactor);
-            self.renderResultAnimations(component, resultAnimations);
-            component.set("v.resultAnimations", resultAnimations);
+            if(resultAnimations && resultAnimations.length > 0){
+                self.renderResultAnimations(component, resultAnimations);
+                component.set("v.resultAnimations", resultAnimations);
+            }
+            if(loadingAnimations){
+                self.renderLoadingAnimations(component, loadingAnimations);
+            }
         }
     },
     updateResultAnimation: function(component, resultAnimation, canvas){
@@ -253,7 +327,6 @@
             var ctx = canvas.getContext("2d");
             var textMeasure = ctx.measureText(resultAnimation.label);
             renderedWidth = textMeasure.width;
-            //renderedHeight = textMeasure.emHeightAscent + textMeasure.emHeightDescent;
             renderedHeight = 30;
         } else {
             if(resultAnimation.image.complete){
@@ -261,6 +334,7 @@
                 renderedHeight = resultAnimation.image.height;
             }
         }
+        resultAnimation.alpha = resultAnimation.alpha + 0.015;
         if(component.get("v.bouncing")){
             if((resultAnimation.x + renderedWidth >= canvas.width && resultAnimation.xVelocity > 0) || (resultAnimation.x < 0 && resultAnimation.xVelocity < 0)){
                 resultAnimation.xVelocity = resultAnimation.xVelocity * -1;
@@ -268,7 +342,7 @@
             if((resultAnimation.y + renderedHeight >= canvas.height && resultAnimation.yVelocity > 0) || (resultAnimation.y < 0 && resultAnimation.yVelocity < 0)){
                 resultAnimation.yVelocity = resultAnimation.yVelocity * -1;
             }
-        } else if(resultAnimation.rank <= 3){
+        } else if(resultAnimation.rank <= 2){
             var targetX = 40;
             var targetY = 200 * resultAnimation.rank + 20;
             var xDistance = targetX - resultAnimation.x;
@@ -295,6 +369,12 @@
                     resultAnimation.yVelocity = Math.max(maxSpeed * -1, resultAnimation.yVelocity + speedMultiplier * yDistance);
                 }
             }
+            if(Math.abs(xDistance) < innerBox && Math.abs(yDistance) < innerBox){
+                resultAnimation.showResults = true;
+                if(resultAnimation.backgroundAlpha < 0.9){
+                    resultAnimation.backgroundAlpha = resultAnimation.backgroundAlpha + 0.02;
+                }
+            }
         }
         resultAnimation.y = resultAnimation.y + resultAnimation.yVelocity;
         resultAnimation.x = resultAnimation.x + resultAnimation.xVelocity;
@@ -304,15 +384,50 @@
         var imageCanvas = component.find("imageCanvas");
         var ctx = imageCanvas.getElement().getContext('2d');
         for(var i = 0; i < resultAnimations.length; i++){
+            ctx.globalAlpha = resultAnimations[i].alpha;
             if(!resultAnimations[i].image){
                 ctx.font = "30px Arial";
                 ctx.fillText(resultAnimations[i].label, resultAnimations[i].x, resultAnimations[i].y);
             } else {
+                if(resultAnimations[i].showResults){
+                    self.renderResultLabel(component, resultAnimations[i], ctx);
+                }
                 if(resultAnimations[i].image.complete){
                     ctx.drawImage(resultAnimations[i].image,resultAnimations[i].x,resultAnimations[i].y);
                 }
             }
         }
+    },
+    renderResultLabel: function(component, resultAnimation, ctx){
+        ctx.fillStyle = "white";
+        ctx.textBaseline="hanging";
+        var rankString = "#" + parseInt(resultAnimation.rank + 1);
+        var wordGap = 20;
+        var wordBuffer = 20;
+        var labelWidth = 300;
+        //var rankWidth = ctx.measureText(rankString).width;
+        var rankWidth = 25;
+        var labelY = resultAnimation.y + (resultAnimation.image.height/2 + 17.5);
+        var labelPadding = 10;
+        var background = {
+            "x":0,
+            "y":labelY - labelPadding,
+            "width": resultAnimation.x + resultAnimation.image.width + wordBuffer + labelWidth + wordGap + rankWidth + labelPadding * 2,
+            "height": 35 + (labelPadding * 2)
+        };
+        //BACKGROUND
+        ctx.globalAlpha = resultAnimation.backgroundAlpha;
+        ctx.fillStyle = "rgba(255,255,255,1)";
+        ctx.fillRect(background.x,background.y,background.width,background.height);
+        //RANK
+        ctx.globalAlpha = 1;
+        ctx.font = "bold 35px Ariel";
+        ctx.fillStyle = "rgba(91,26,133,1)";
+        ctx.fillText(rankString, resultAnimation.x + resultAnimation.image.width + wordBuffer, labelY);
+        //LABEL
+        ctx.font = "italic 35px Ariel";
+        ctx.fillStyle = "#0071be";
+        ctx.fillText(resultAnimation.label, resultAnimation.x + resultAnimation.image.width + wordBuffer + rankWidth + wordGap, labelY);
     },
     renderResultAnimation: function(component, resultAnimation){
     },

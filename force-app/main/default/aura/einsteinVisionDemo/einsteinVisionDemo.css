@@ -31,3 +31,6 @@
 .THIS .einsteinButton:focus{
     outline:0;
 }
+.THIS .einsteinButton:disabled{
+    background-color:grey;
+}
